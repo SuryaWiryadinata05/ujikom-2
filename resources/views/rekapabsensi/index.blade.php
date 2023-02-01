@@ -26,8 +26,8 @@
                         </div>
                         <div class="card-body bg-light shadow p-4">
                             <div class="table-responsive">
-                                <table class="table" id="dataTable">
-                                    <div class="row">
+                                <table class="table" id="datatables">
+                                    {{-- <div class="row">
                                         <form action="" method="post" enctype="multipart/form-data" id="dataTable">
                                             @csrf
                                             <div class="col-md-4">
@@ -44,12 +44,10 @@
                                                 <select name="jurusan" id="id_jurusan" class="form-control">
                                                     <option value="">Pilih Jurusan</option>
                                                     @foreach ($jurusan as $jurusan)
-                                                        {{-- @if ($id_jurusan == $jurusan->id_jurusan) --}}
+                                                        
                                                         <option value="{{ $jurusan->id_jurusan }}" selected>
                                                             {{ $jurusan->jurusan }}</option>
-                                                        {{-- @else
-                                        <option value="{{$jurusan->id_jurusan}}">{{$jurusan->jurusan}}</option>
-                                        @endif --}}
+                                                        
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -60,7 +58,7 @@
                                             <button class="btn btn-info" type="submit" name="simpan">Kirim</button>
                                         </div>
                                     </div>
-                                    </form>
+                                    </form> --}}
                                     <br>
                                     <thead>
                                         <th>No</th>
