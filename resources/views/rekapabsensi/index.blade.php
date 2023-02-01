@@ -20,11 +20,11 @@
 
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <div class="card elevation-5 shadow p-2" style="background-color:rgb(221, 221, 221)) ;">
-                        <div class="card-header pb-3" style="background-color: rgb(143, 188, 240)">Rekap Absensi
+                <div class="col-md-10 mt-5">
+                    <div class="card" style="background-color:rgb(221, 221, 221)) ;">
+                        <div class="card-header pb-3" style="background-color:rgb(229, 227, 227)">Rekap Absensi
                         </div>
-                        <div class="card-body bg-light shadow p-4">
+                        <div class="card-body bg-light shadow ">
                             <div class="table-responsive">
                                 <table class="table" id="datatables">
                                     {{-- <div class="row">

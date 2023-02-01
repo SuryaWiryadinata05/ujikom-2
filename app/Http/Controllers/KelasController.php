@@ -59,7 +59,7 @@ class KelasController extends Controller
         $kelas->kelas = $request->kelas;
         $kelas->save();
         return redirect()->route('kelas.index')
-            ->with('success', 'Data berhasil dibuat!');
+            ->withSuccess('Data Berhasil Dibuat!');
     }
 
     /**
@@ -109,7 +109,7 @@ class KelasController extends Controller
         $kelas->kelas = $request->kelas;
         $kelas->save();
         return redirect()->route('kelas.index')
-            ->with('success', 'Data berhasil dibuat!');
+            ->withSuccess('Data Berhasil Diubah!');
     }
 
     /**
@@ -124,6 +124,6 @@ class KelasController extends Controller
         $kelas = Kelas::findOrFail($id);
         $kelas->delete();
         return redirect()->route('kelas.index')
-            ->with('success', 'Data berhasil dibuat!');
+            ->withSuccess('Data Berhasil Dihapus!');
     }
 }

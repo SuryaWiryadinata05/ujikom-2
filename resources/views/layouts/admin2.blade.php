@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Web Absensi</title>
 
     <meta name="description" content="" />
 
@@ -165,14 +165,14 @@
            <li class="menu-item">
             <a href="{{url('/member/absensiswa')}}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-crown"></i>
-              <div data-i18n="Boxicons">Boxicons</div>
+              <div data-i18n="Boxicons">Presensi Masuk</div>
             </a>
           </li>
 
           <li class="menu-item">
             <a href="{{url('/member/absen-siswa')}}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-crown"></i>
-              <div data-i18n="Boxicons">Boxicons</div>
+              <div data-i18n="Boxicons">Presensi Keluar</div>
             </a>
           </li>
           @endrole

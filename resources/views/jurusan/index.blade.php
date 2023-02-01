@@ -86,10 +86,10 @@
                         </div>
                     </div>
 
-                    <div class="card-body  pt-2 pl-2 pr-2"style="background-color:white;">
+                    
+                    <div class="card-body p-4"style="background-color:white;">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover " id="datatables"
-                                cellspacing="0",width="100%">
+                            <table class="table table-bordered table-striped table-hover " id="datatables">
                                 <thead>
                                     <tr>
                                         <th>No</th>

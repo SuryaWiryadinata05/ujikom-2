@@ -86,14 +86,20 @@
 
                                                 </tr>
                                             @endforeach
-                                            <tr>
-                                                <td>
-
-                                                </td>
-                                            </tr>
+                                            
                                         </tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="mb-3">
+                                                    <div class="d-grid gap-2">
+                                                        <button class="btn btn-info" type="submit">Simpan</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     </form>
                                 </table>
+                                
                             </div>
                         </div>
                     </div>
