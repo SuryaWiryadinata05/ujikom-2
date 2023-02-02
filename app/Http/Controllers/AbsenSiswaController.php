@@ -6,6 +6,9 @@ use App\Models\AbsenSiswa;
 use Illuminate\Http\Request;
 use DateTime;
 use DateTimeZone;
+use RealRashid\SweetAlert\Facades\Alert;
+
+
 
 class AbsenSiswaController extends Controller
 {
@@ -77,8 +80,8 @@ class AbsenSiswaController extends Controller
         ])->first();
 
         if ($absensiswa) {
-            return redirect()->route('absensiswa')
-            ->with('error', 'Data presensi sudah ada!');
+            return back()
+            ->withWarning('Data presensi sudah ada!');
         } else {
             AbsenSiswa::create([
                 'user_id' => auth()->user()->id,
@@ -109,7 +112,7 @@ class AbsenSiswaController extends Controller
         if ($absensiswa->time_out == "") {
             $absensiswa->update($dt);
             return redirect()->route('absen-siswa')
-            ->with('success', 'Anda berhasil presensi keluar!');
+            ->withSuccess('Anda berhasil presensi keluar!');
         } else {
             return redirect()->route('absen-siswa')
             ->withWarning('Data presensi sudah ada!');

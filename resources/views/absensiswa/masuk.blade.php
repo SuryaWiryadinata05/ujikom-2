@@ -11,13 +11,13 @@
     }
 </style>
 <div class="container">
-  <div class="col-lg-8 mb-4 order-0">
+  <div class="col-lg-8 mt-4">
     
   <div class="col-md-12">
-    @include('layouts/_flash')
+    @include('sweetalert::alert')
     <div class="card elevation-5 shadow p-2 " style="background-color:rgb(221, 221, 221)) ;">
         
-        <div class="card-header pb-3 " style="background-color: rgb(143, 188, 240)">
+        <div class="card-header pb-3 " style="background-color:  rgb(229, 227, 227)">
             Absensi 
         </div>
         

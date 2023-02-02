@@ -114,16 +114,11 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
-              <a href="index.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
-              </a>
-            </li>
+           
 
             <!-- Layouts -->
             @role('admin')
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+            <li class="menu-header small text-uppercase text-dark"><span class="menu-header-text">Components</span></li>
             <!-- Cards -->
             <li class="menu-item">
               <a href="{{route('jurusan.index')}}" class="menu-link">
@@ -162,6 +157,7 @@
            @endrole
 
            @role('member')
+           <li class="menu-header small text-uppercase text-dark"><span class="menu-header-text">Components</span></li>
            <li class="menu-item">
             <a href="{{url('/member/absensiswa')}}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-crown"></i>

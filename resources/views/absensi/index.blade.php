@@ -28,9 +28,8 @@
                         </div>
                         <div class="card-body bg-light shadow p-4">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover" id="datatables">
-                                    <form action="{{ route('absensi.store') }}" method="post"
-                                        enctype="multipart/form-data">
+                                <form action="{{ route('absensi.store') }}" method="post" enctype="multipart/form-data">
+                                    <table class="table table-bordered table-striped table-hover" id="datatables">
                                         @csrf
                                         <thead>
                                             <th>No</th>
@@ -86,20 +85,13 @@
 
                                                 </tr>
                                             @endforeach
-                                            
+
                                         </tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="mb-3">
-                                                    <div class="d-grid gap-2">
-                                                        <button class="btn btn-info" type="submit">Simpan</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </form>
-                                </table>
-                                
+                                    </table>
+                                <div class="mb-3">
+                                    <button class="btn btn-info" type="submit">Simpan</button>
+                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
