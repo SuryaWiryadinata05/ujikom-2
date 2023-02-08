@@ -36,7 +36,7 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label class="form-label">NIS</label>
-                                    <input type="text" class="form-control  @error('nis') is-invalid @enderror"
+                                    <input type="text" onkeypress="isInputNumber(event)" class="form-control  @error('nis') is-invalid @enderror"
                                         name="nis">
                                     @error('nis')
                                         <span class="invalid-feedback" role="alert">
@@ -57,10 +57,9 @@
                                 <div class="mb-3">
                                     <label class="form-label">Kelas</label>
                                     <select name="kelas" class="form-control @error('kelas') is-invalid @enderror" id="">
-                                        <option value="">Pilih Kelas</option>
-                                        <option value="X">X</option>
-                                        <option value="XI">XI</option>
-                                        <option value="XII">XII</option>
+                                        @foreach ($kelas as $data)
+                                            <option value="{{ $data->id }}">{{ $data->kelas }}</option>
+                                        @endforeach
                                     </select>
                                     @error('kelas')
                                         <span class="invalid-feedback" role="alert">
@@ -214,6 +213,20 @@
         </div>
     </div>
 </div>
+
+<script>
+            
+    function isInputNumber(evt){
+        
+        var ch = String.fromCharCode(evt.which);
+        
+        if(!(/[0-9]/.test(ch))){
+            evt.preventDefault();
+        }
+        
+    }
+    
+</script>
 </body>
 </html>
 @endsection

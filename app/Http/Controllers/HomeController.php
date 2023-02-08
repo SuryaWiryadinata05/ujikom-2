@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Laratrust;
+use App\Models\Siswa;
+use App\Models\Jurusan;
+use App\Models\Kelas;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Create a new controller instance.s
      *
      * @return void
      */
@@ -31,7 +34,11 @@ class HomeController extends Controller
 
     protected function adminDashboard()
     {
-        return view('admin.index');
+        $siswa = Siswa::select('id')->count();
+        $jurusan = Jurusan::select('id')->count();
+        $kelas = Kelas::select('id')->count();
+
+        return view('admin.index',compact('siswa','jurusan','kelas'));
     }
 
     protected function memberDashboard()

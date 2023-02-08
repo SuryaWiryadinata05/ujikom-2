@@ -24,7 +24,7 @@
                 </div>
             @endif
 
-            <h4>{{Auth::user()->name}}! Kamu berhasil login</h4> 
+            <h4>{{Auth::user()->name}}! Kamu berhasil</h4> 
             </p>
 
             

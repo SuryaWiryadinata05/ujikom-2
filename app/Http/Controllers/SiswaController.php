@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use App\Models\Jurusan;
+use App\Models\Kelas;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -24,10 +25,11 @@ class SiswaController extends Controller
     public function index()
     {
         $siswa = Siswa::with('jurusan')->get();
+        $kelas = Kelas::all();
         $jurusan = Jurusan::all();
         // dd($siswa);
         // return $siswa;
-        return view('siswa.index', compact('siswa','jurusan'));
+        return view('siswa.index', compact('siswa','jurusan','kelas'));
     }
 
     /**
@@ -52,6 +54,8 @@ class SiswaController extends Controller
     {
         // dd($request->all());
         $validated = $request->validate([
+
+            
             'nis' => 'required|unique:siswas',
             'name' => 'required',
             'kelas' => 'required',

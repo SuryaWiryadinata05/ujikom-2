@@ -116,6 +116,14 @@
             <!-- Dashboard -->
            
 
+            <li class="menu-item active">
+              <a href=" {{ route('home')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Dashboard</div>
+              </a>
+            </li>
+
+
             <!-- Layouts -->
             @role('admin')
             <li class="menu-header small text-uppercase text-dark"><span class="menu-header-text">Components</span></li>
@@ -232,7 +240,7 @@
                     data-size="large"
                     data-show-count="true"
                     aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
-                    >Home</a
+                    >-----</a
                   >
                 </li>
 
