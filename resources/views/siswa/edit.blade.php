@@ -15,7 +15,7 @@
                             @method('put')
                             <div class="mb-3">
                                 <label class="form-label">NIS</label>
-                                <input type="text" class="form-control  @error('nis') is-invalid @enderror"
+                                <input type="text" onkeypress="isInputNumber(event)" class="form-control  @error('nis') is-invalid @enderror"
                                     name="nis" value="{{ $siswa->nis }}">
                                 @error('nis')
                                     <span class="invalid-feedback" role="alert">
@@ -95,4 +95,17 @@
             </div>
         </div>
     </div>
+    <script>
+            
+        function isInputNumber(evt){
+            
+            var ch = String.fromCharCode(evt.which);
+            
+            if(!(/[0-9]/.test(ch))){
+                evt.preventDefault();
+            }
+            
+        }
+        
+    </script>
 @endsection

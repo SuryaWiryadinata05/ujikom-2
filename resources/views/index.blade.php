@@ -1,692 +1,336 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js')}}" lang="zxx">
 
-  <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Aplikasi Absensi </title>
     <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('ihh/assets/img/favicon.ico') }}">
 
-    <title>Aplikasi Absensi</title>
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/slicknav.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/progressbar_barfiller.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/gijgo.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/animated-headline.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('ihh/assets/css/style.css') }}">
 
-    <!-- Bootstrap core CSS -->
-    <link href="{{asset('chain/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
-<!--
-
-TemplateMo 570 Chain App Dev
-
-https://templatemo.com/tm-570-chain-app-dev
-
--->
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('chain/assets/css/templatemo-chain-app-dev.css')}}">
-    <link rel="stylesheet" href="{{asset('chain/assets/css/animated.css')}}">
-    <link rel="stylesheet" href="{{asset('chain/assets/css/owl.css')}}">
-
-  </head>
+</head>
 
 <body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="{{ asset('kamuaku/images/logo-custom.png') }}" alt="">
 
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
-              <img src="{{asset('chain/assets/images/logo.png')}}" alt="Chain App Dev">
-            </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              
-
-              @if (Route::has('login'))
-                    @auth
-                        <li class="scroll-to-section">
-                            <a href="{{ url('/home') }}"
-                                class="active">Home</a>
-                        </li>
-                    @else
-                        <li class="scroll-to-section">
-                            <a href="{{ route('login') }}" class="active">Login</a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li class="scroll-to-section">
-                                <a href="{{ route('register') }}"
-                                    class="nav-link text-light">Register</a>
-                            </li>
-                        @endif
-                    @endauth
-                @endif
-
-                <li><a href="{{ url('/contact') }}">Kontak</a></li>
-            </ul>      
-            
-           
-            <a class='menu-trigger'>
-                <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-  
-  <div id="modal" class="popupContainer" style="display:none;">
-    <div class="popupHeader">
-        <span class="header_title">Login</span>
-        <span class="modal_close"><i class="fa fa-times"></i></span>
-    </div>
-
-    <section class="popupBody">
-        <!-- Social Login -->
-        <div class="social_login">
-            <div class="">
-                <a href="#" class="social_box fb">
-                    <span class="icon"><i class="fab fa-facebook"></i></span>
-                    <span class="icon_title">Connect with Facebook</span>
-
-                </a>
-
-                <a href="#" class="social_box google">
-                    <span class="icon"><i class="fab fa-google-plus"></i></span>
-                    <span class="icon_title">Connect with Google</span>
-                </a>
-            </div>
-
-            <div class="centeredText">
-                <span>Or use your Email address</span>
-            </div>
-
-            <div class="action_btns">
-                <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-                <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-            </div>
-        </div>
-
-        <!-- Username & Password Login form -->
-        <div class="user_login">
-            <form>
-                <label>Email / Username</label>
-                <input type="text" />
-                <br />
-
-                <label>Password</label>
-                <input type="password" />
-                <br />
-
-                <div class="checkbox">
-                    <input id="remember" type="checkbox" />
-                    <label for="remember">Remember me on this computer</label>
+                    {{-- <img src="{{asset('ihh/assets/img/logo/loder.png')}}" alt=""> --}}
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo">
+                                    <a href="index.html"><img src="{{ asset('kamuaku/images/logo-custom.png') }}"
+                                            width="150px" height="70" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10">
+                                <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                    <!-- Main-menu -->
+                                    <div class="main-menu d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">
 
-                <div class="action_btns">
-                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                    <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+                                                @if (Route::has('login'))
+                                                    @auth
+                                                        <li class="nav-item text-light">
+                                                            <a href="{{ url('/home') }}"
+                                                                class="nav-link text-light">Home</a>
+                                                        </li>
+                                                    @else
+                                                        <li class="button-header">
+                                                            <a href="{{ route('login') }}" class="btn btn3 mt-1">Masuk</a>
+                                                        </li>
+                                                        @if (Route::has('register'))
+                                                            <li class="nav-item">
+                                                                <a href="{{ route('register') }}"
+                                                                    class="nav-link  text-light">Register</a>
+                                                            </li>
+                                                        @endif
+                                                    @endauth
+                                                @endif
+
+                                                <li><a href="{{ url('/contact') }}">Kontak</a></li>
+                                                <!-- Button -->
+
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
-
-            <a href="#" class="forgot_password">Forgot password?</a>
+            </div>
         </div>
-
-        <!-- Register Form -->
-        <div class="user_register">
-            <form>
-                <label>Full Name</label>
-                <input type="text" />
-                <br />
-
-                <label>Email Address</label>
-                <input type="email" />
-                <br />
-
-                <label>Password</label>
-                <input type="password" />
-                <br />
-
-                <div class="checkbox">
-                    <input id="send_updates" type="checkbox" />
-                    <label for="send_updates">Send me occasional email updates</label>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!--? slider Area Start-->
+        <section class="slider-area ">
+            <div class="slider-active">
+                <!-- Single Slider -->
+                <div class="single-slider slider-height d-flex align-items-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-7 col-md-12">
+                                <div class="hero__caption">
+                                    <h1 data-animation="fadeInLeft" data-delay="0.7s">Situs web<br>Absensi</h1>
+                                    <p data-animation="fadeInLeft" data-delay="0.8s">Mudah Digunakan Dan Cepat</p>
+                                    <p data-animation="fadeInLeft" data-delay="0.8s">Pokonyamah Gaskeunss Buakaaarrrrr
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="action_btns">
-                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                    <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+            </div>
+        </section>
+        <!-- ? services-area -->
+        <div class="services-area">
+            <div class="container">
+                <div class="row justify-content-sm-center">
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-services mb-30">
+                            <div class="features-icon">
+                                <img src="{{ asset('ihh/assets/img/icon/icon1.svg') }}" alt="">
+                            </div>
+                            <div class="features-caption">
+                                <h3>Menjadi Mudah</h3>
+                                <p>Proses Absensi Lebih Menjadi Mudah</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-services mb-30">
+                            <div class="features-icon">
+                                <img src="{{ asset('ihh/assets/img/icon/icon2.svg') }}" alt="">
+                            </div>
+                            <div class="features-caption">
+                                <h3>Proses</h3>
+                                <p>Memproses Data Secara Otomatis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-services mb-30">
+                            <div class="features-icon">
+                                <img src="{{ asset('ihh/assets/img/icon/icon3.svg') }}" alt="">
+                            </div>
+                            <div class="features-caption">
+                                <h3>Efisien</h3>
+                                <p>Efisien Dalam Melakukan Absensi</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
-    </section>
-</div>
+        <!-- Courses area start -->
 
-  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="row">
-            <div class="col-lg-6 align-self-center">
-              <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <h2>Web Absensi Efisien Dalam Pengabsenan</h2>
-                    <p>Mudah Dig </p>
-                  </div>
-                 
+        <!-- Courses area End -->
+        <!--? About Area-1 Start -->
+
+        <!-- About Area End -->
+        <!--? top subjects Area Start -->
+
+        <!-- top subjects End -->
+        <!--? About Area-3 Start -->
+
+        <!-- About Area End -->
+        <!--? Team -->
+        <section class="team-area section-padding40 fix">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-8">
+                        <div class="section-tittle text-center mb-55">
+                            <h2>Community experts</h2>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="{{asset('chain/assets/images/slider-dec.png')}}" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+                <div class="team-active">
 
-  <div id="services" class="services section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-          <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-            <h4>Amazing <em>Services &amp; Features</em> for you</h4>
-            <img src="{{asset('chain/assets/images/heading-line-dec.png')}}" alt="">
-            <p>If you need the greatest collection of HTML templates for your business, please visit <a rel="nofollow" href="https://www.toocss.com/" target="_blank">TooCSS</a> Blog. If you need to have a contact form PHP script, go to <a href="https://templatemo.com/contact" target="_parent">our contact page</a> for more information.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="service-item first-service">
-            <div class="icon"></div>
-            <h4>Menjadi Mudah</h4>
-            <p>Proses Absensi Lebih Menjadi Mudah</p>
-            <div class="text-button">
-              <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="service-item second-service">
-            <div class="icon"></div>
-            <h4>Proses</h4>
-            <p>Memproses Data Secara Otomatis</p>
-            <div class="text-button">
-              <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="service-item third-service">
-            <div class="icon"></div>
-            <h4>Efisien</h4>
-            <p>Efisien Dalam Melakukan Absensi</p>
-            <div class="text-button">
-              <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {{-- <div id="about" class="about-us section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 align-self-center">
-          <div class="section-heading">
-            <h4>About <em>What We Do</em> &amp; Who We Are</h4>
-            <img src="{{asset('chain/assets/images/heading-line-dec.png')}}" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
-          </div>
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="box-item">
-                <h4><a href="#">Maintance Problems</a></h4>
-                <p>Lorem Ipsum Text</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="box-item">
-                <h4><a href="#">24/7 Support &amp; Help</a></h4>
-                <p>Lorem Ipsum Text</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="box-item">
-                <h4><a href="#">Fixing Issues About</a></h4>
-                <p>Lorem Ipsum Text</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="box-item">
-                <h4><a href="#">Co. Development</a></h4>
-                <p>Lorem Ipsum Text</p>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor idunte ut labore et dolore adipiscing  magna.</p>
-              <div class="gradient-button">
-                <a href="#">Start 14-Day Free Trial</a>
-              </div>
-              <span>*No Credit Card Required</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="right-image">
-            <img src="{{asset('chain/assets/images/about-right-dec.png')}}" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> --}}
-{{-- 
-  <div id="clients" class="the-clients">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-          <div class="section-heading">
-            <h4>Check What <em>The Clients Say</em> About Our App Dev</h4>
-            <img src="{{asset('chain/assets/images/heading-line-dec.png')}}" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="naccs">
-            <div class="grid">
-              <div class="row">
-                <div class="col-lg-7 align-self-center">
-                  <div class="menu">
-                    <div class="first-thumb active">
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>David Martino Co</h4>
-                            <span class="date">30 November 2021</span>
-                          </div>
-                          <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                            <span class="category">Financial Apps</span>
-                          </div>
-                          <div class="col-lg-4 col-sm-4 col-12">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span class="rating">4.8</span>
-                          </div>
+                    <div class="single-cat text-center">
+                        <div class="cat-icon">
+                            <img src="{{ asset('ihh/assets/img/gallery/sur.jfif') }}" width="194px" height="190px"
+                                style="border-radius: 128px; border: 12px solid #efefef;" alt="">
                         </div>
-                      </div>
+                        <div class="cat-cap">
+                            <h5><a href="services.html">Mr. Surr</a></h5>
+                            <p>Rekayasa Perangkat lunak XII Rpl 3</p>
+                        </div>
                     </div>
-                    <div>
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Jake Harris Nyo</h4>
-                            <span class="date">29 November 2021</span>
-                          </div>
-                          <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                            <span class="category">Digital Business</span>
-                          </div>
-                          <div class="col-lg-4 col-sm-4 col-12">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span class="rating">4.5</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>May Catherina</h4>
-                            <span class="date">27 November 2021</span>
-                          </div>
-                          <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                            <span class="category">Business &amp; Economics</span>
-                          </div>
-                          <div class="col-lg-4 col-sm-4 col-12">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span class="rating">4.7</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Random User</h4>
-                            <span class="date">24 November 2021</span>
-                          </div>
-                          <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                            <span class="category">New App Ecosystem</span>
-                          </div>
-                          <div class="col-lg-4 col-sm-4 col-12">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span class="rating">3.9</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="last-thumb">
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Mark Amber Do</h4>
-                            <span class="date">21 November 2021</span>
-                          </div>
-                          <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                            <span class="category">Web Development</span>
-                          </div>
-                          <div class="col-lg-4 col-sm-4 col-12">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span class="rating">4.3</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> 
-                <div class="col-lg-5">
-                  <ul class="nacc">
-                    <li class="active">
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-12">
-                              <div class="client-content">
-                                <img src="{{asset('chain/assets/images/quote.png')}}" alt="">
-                                <p>“Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
-                                  lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
-                              </div>
-                              <div class="down-content">
-                                <img src="{{asset('chain/assets/images/client-image.jpg')}}" alt="">
-                                <div class="right-content">
-                                  <h4>David Martino</h4>
-                                  <span>CEO of David Company</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-12">
-                              <div class="client-content">
-                                <img src="{{asset('chain/assets/images/quote.png')}}" alt="">
-                                <p>“CTO, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
-                                  lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
-                              </div>
-                              <div class="down-content">
-                                <img src="{{asset('chain/assets/images/client-image.jpg')}}" alt="">
-                                <div class="right-content">
-                                  <h4>Jake H. Nyo</h4>
-                                  <span>CTO of Digital Company</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-12">
-                              <div class="client-content">
-                                <img src="{{asset('chain/assets/images/quote.png')}}" alt="">
-                                <p>“May, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
-                                  lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
-                              </div>
-                              <div class="down-content">
-                                <img src="{{asset('chain/assets/images/client-image.jpg')}}" alt="">
-                                <div class="right-content">
-                                  <h4>May C.</h4>
-                                  <span>Founder of Catherina Co.</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-12">
-                              <div class="client-content">
-                                <img src="{{asset('chain/assets/images/quote.png')}}" alt="">
-                                <p>“Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
-                                  lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
-                              </div>
-                              <div class="down-content">
-                                <img src="{{asset('chain/assets/images/client-image.jpg')}}" alt="">
-                                <div class="right-content">
-                                  <h4>Random Staff</h4>
-                                  <span>Manager, Digital Company</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-12">
-                              <div class="client-content">
-                                <img src="{{asset('chain/assets/images/quote.png')}}" alt="">
-                                <p>“Mark, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
-                                  lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
-                              </div>
-                              <div class="down-content">
-                                <img src="{{asset('chain/assets/images/client-image.jpg')}}" alt="">
-                                <div class="right-content">
-                                  <h4>Mark Am</h4>
-                                  <span>CTO, Amber Do Company</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>          
-              </div>
+
+                </div>
             </div>
-          </div>
+        </section>
+        <!-- Services End -->
+        <!--? About Area-2 Start -->
+
+        <!-- About Area End -->
+    </main>
+    <footer>
+        <div class="footer-wrappper footer-bg">
+            <!-- Footer Start-->
+            <div class="footer-area footer-padding">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-xl-4 col-lg-5 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="single-footer-caption mb-30">
+                                    <!-- logo -->
+                                    <div class="footer-logo mb-25 mr-10">
+                                        <a href="index.html"><img src="{{ asset('kamuaku/images/logo-custom.png') }}"
+                                                width="300px" height="130px" alt=""></a>
+                                    </div>
+                                    <div class="footer-tittle">
+                                        <div class="footer-pera">
+                                            <p>Sekolah Idaman Dan Terfavorit Se Bandung Raya</p>
+                                        </div>
+                                    </div>
+                                    <!-- social -->
+                                    <div class="footer-social">
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Best</h4>
+                                    <ul>
+                                        <li><a href="#">Designer And Kreatf</a></li>
+                                        <li><a href="#">Telecommunication</a></li>
+                                        <li><a href="#">Kami Adalah Programmer</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Support</h4>
+                                    <ul>
+                                        <li><a href="https://www.instagram.com/khiuzy/">Follow Instagram Kami</a></li>
+                                        <li><a href="https://www.instagram.com/kwnadd/">Follow Instagram Kami</a></li>
+                                        <li><a href="https://smkassalaambandung.sch.id/">Lihat Sekolah Saya</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- footer-bottom area -->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                                    <p>
+                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                        Copyright &copy; Dengan Teman Saya Dengan Hati
+                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End-->
         </div>
-      </div>
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
-  </div> --}}
 
-  {{-- <div id="pricing" class="pricing-tables">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-          <div class="section-heading">
-            <h4>We Have The Best Pre-Order <em>Prices</em> You Can Get</h4>
-            <img src="{{asset('chain/assets/images/heading-line-dec.png')}}" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="pricing-item-regular">
-            <span class="price">$12</span>
-            <h4>Standard Plan App</h4>
-            <div class="icon">
-              <img src="{{asset('chain/assets/images/pricing-table-01.png')}}" alt="">
-            </div>
-            <ul>
-              <li>Lorem Ipsum Dolores</li>
-              <li>20 TB of Storage</li>
-              <li class="non-function">Life-time Support</li>
-              <li class="non-function">Premium Add-Ons</li>
-              <li class="non-function">Fastest Network</li>
-              <li class="non-function">More Options</li>
-            </ul>
-            <div class="border-button">
-              <a href="#">Purchase This Plan Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="pricing-item-pro">
-            <span class="price">$25</span>
-            <h4>Business Plan App</h4>
-            <div class="icon">
-              <img src="{{asset('chain/assets/images/pricing-table-01.png')}}" alt="">
-            </div>
-            <ul>
-              <li>Lorem Ipsum Dolores</li>
-              <li>50 TB of Storage</li>
-              <li>Life-time Support</li>
-              <li>Premium Add-Ons</li>
-              <li class="non-function">Fastest Network</li>
-              <li class="non-function">More Options</li>
-            </ul>
-            <div class="border-button">
-              <a href="#">Purchase This Plan Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="pricing-item-regular">
-            <span class="price">$66</span>
-            <h4>Premium Plan App</h4>
-            <div class="icon">
-              <img src="{{asset('chain/assets/images/pricing-table-01.png')}}" alt="">
-            </div>
-            <ul>
-              <li>Lorem Ipsum Dolores</li>
-              <li>120 TB of Storage</li>
-              <li>Life-time Support</li>
-              <li>Premium Add-Ons</li>
-              <li>Fastest Network</li>
-              <li>More Options</li>
-            </ul>
-            <div class="border-button">
-              <a href="#">Purchase This Plan Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  --}}
+    <!-- JS here -->
+    <script src="{{ asset('ihh/assets/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{{ asset('ihh/assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/bootstrap.min.js') }}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{{ asset('ihh/assets/js/jquery.slicknav.min.js') }}"></script>
 
-  <footer id="newsletter">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-          <div class="section-heading">
-            <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mari Bergabung dengan Sekolah Kami &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SMK ASSALAAM BANDUNG </h4>
-          </div>
-        </div>
-        
-      </div>
-      <div class="row">
-        <div class="col-lg-3">
-          <div class="footer-widget">
-            <h4>Contact Kami</h4>
-            <p>Jl. Situ Tarate Jl. Cibaduyut, Cangkuang Kulon, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40265</p>
-            <p><a href="#">010-020-0340</a></p>
-            <p><a href="https://www.smkassalaambandung.sch.id/">info@sekolah.com</a></p>
-          </div>
-        </div>
-       
-        <div class="col-lg-3">
-          <div class="footer-widget">
-            <h4>Follow Social Media Kami</h4>
-            <ul>
-              <li><a href="#">Follow Instagram Saya</a></li>
-              <li><a href="#">Follow Instagram Sekolah Saya</a></li>
-              <li><a href="#">Programming</a></li>
-              <li><a href="#">Development</a></li>
-              <li><a href="#">App News</a></li>
-            </ul>
-            <ul>
-                <li><a href="#">Designer And Kreatf</a></li>
-                <li><a href="#">Telecommunication</a></li>
-                <li><a href="#">Kami Adalah Programmer</a></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="col-lg-12">
-          <div class="copyright-text">
-            <p>Copyright © 2023 Chain App Dev Company. All Rights Reserved. 
-          <br>Design: <a href="https://templatemo.com/" target="_blank" title="css templates">TemplateMo</a><br>
-        
-          Distributed By: <a href="https://themewagon.com/" target="_blank" title="Bootstrap Template World">ThemeWagon</a>
-        </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="{{ asset('ihh/assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/slick.min.js') }}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{{ asset('ihh/assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/animated.headline.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/jquery.magnific-popup.js') }}"></script>
 
+    <!-- Date Picker -->
+    <script src="{{ asset('ihh/assets/js/gijgo.min.js') }}"></script>
+    <!-- Nice-select, sticky -->
+    <script src="{{ asset('ihh/assets/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/jquery.sticky.js') }}"></script>
+    <!-- Progress -->
+    <script src="{{ asset('ihh/assets/js/jquery.barfiller.js') }}"></script>
 
-  <!-- Scripts -->
-  <script src="{{asset('chain/vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('chain/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('chain/assets/js/owl-carousel.js')}}"></script>
-  <script src="{{asset('chain/assets/js/animation.js')}}"></script>
-  <script src="{{asset('chain/assets/js/imagesloaded.js')}}"></script>
-  <script src="{{asset('chain/assets/js/popup.js')}}"></script>
-  <script src="{{asset('chain/assets/js/custom.js')}}"></script>
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="{{ asset('ihh/assets/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/hover-direction-snake.min.js') }}"></script>
+
+    <!-- contact js -->
+    <script src="{{ asset('ihh/assets/js/contact.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/jquery.form.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/mail-script.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/jquery.ajaxchimp.min.js') }}"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="{{ asset('ihh/assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('ihh/assets/js/main.js') }}"></script>
+
 </body>
+
 </html>
